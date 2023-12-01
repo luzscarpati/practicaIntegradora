@@ -1,6 +1,6 @@
-// import './daos/mongodb/connection.js';
 import express from 'express';
-import productRouter from './routes/products.routes.js'
+import morgan from 'morgan';
+import productRouter from './routes/products.routes.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { initMongoDB } from './daos/mongodb/connection.js';
 

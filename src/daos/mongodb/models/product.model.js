@@ -10,5 +10,5 @@ const productsSchema = new Schema({
 
 export const ProductModel = model(
     productCollection,
-    ProductModel
+    productsSchema
 );

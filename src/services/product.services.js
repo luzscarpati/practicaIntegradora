@@ -1,4 +1,3 @@
-import { update } from '../controllers/product.controllers.js';
 import  ProductDaoMongoDB from '../daos/mongodb/product.dao.js';
 const productDao = new ProductDaoMongoDB();
 
@@ -51,7 +50,7 @@ export const update = async (id, obj) => {
 
 export const remove = async (id) => {
     try{
-        const delProduct = await productDao.delente(id);
+        const delProduct = await productDao.delete(id);
         if(!delProduct){
             return false;
         }else {

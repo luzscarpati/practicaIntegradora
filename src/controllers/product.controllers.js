@@ -1,7 +1,6 @@
-import { json } from "express";
 import * as service from "../services/product.services.js"
 
-export const getAll = async (re, res, next) => {
+export const getAll = async (req, res, next) => {
     try{
         const response = await service.getAll();
         res.status(200).json(response);
@@ -30,7 +29,7 @@ export const create = async (req, res, next) => {
         if (!newProduct) {
             res.status(404)-json({ msg: "Error create product" });
         }else {
-          res.status(200).json(newProduct);  
+          res.status(200).json(newProduct);
         };
     }catch(error){
         next(error.message);

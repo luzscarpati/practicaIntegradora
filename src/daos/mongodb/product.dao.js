@@ -12,7 +12,7 @@ export default class ProductDaoMongoDB {
 
     async getById(id) {
         try{
-            const response = await ProductModel.find(id);
+            const response = await ProductModel.findById(id);
             return response;
         }catch(error){
             console.log(error);
@@ -20,13 +20,15 @@ export default class ProductDaoMongoDB {
     };
 
     async create(obj) {
-        try{
-            const response = await ProductModel(obj);
+        try {
+            const response = await ProductModel.create(obj);
             return response;
-        }catch(error){
-            console.log(error);
-        };
+        } catch (error) {
+            console.error("Error al crear el producto:", error);
+            throw error;
+        }
     };
+    
 
     async update(id, obj) {
         try{
@@ -41,7 +43,7 @@ export default class ProductDaoMongoDB {
         };
     };
 
-    async delente(id) {
+    async delete(id) {
         try{
             const response = await ProductModel.findByIdAndDelete(id);
             return response;
